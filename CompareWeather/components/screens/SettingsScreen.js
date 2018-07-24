@@ -4,19 +4,6 @@ import { Header, SafeAreaView } from 'react-navigation';
 import { List, ListItem } from 'react-native-elements';
 import { TempUnitToggle } from '../TempUnitToggle';
 
-const list = [
-  {
-    title: 'Location'
-  },
-  {
-    title: 'Notifications'
-  },
-  {
-    title: 'Temperature unit',
-    rightIcon: true
-  }
-];
-
 const LocationSelectScreen = 'LocationSelectScreen';
 
 export default class SettingsScreen extends React.Component {
@@ -34,12 +21,24 @@ export default class SettingsScreen extends React.Component {
         <ScrollView style={styles.scrollView}>
           <List containerStyle={styles.settingsList}>
             <ListItem
+              leftIcon={{
+                type: 'entypo',
+                name: 'location-pin',
+                size: 25,
+                color: 'black'
+              }}
               key='location'
               title='Location'
               containerStyle={styles.listItem}
               onPress={this.handleLocationSelect}
             />
             <ListItem
+              leftIcon={{
+                type: 'entypo',
+                name: 'notification',
+                size: 25,
+                color: 'black'
+              }}
               key='notifications'
               title='Notifications'
               containerStyle={styles.listItem}
@@ -50,9 +49,19 @@ export default class SettingsScreen extends React.Component {
               title='Temperature unit'
               containerStyle={styles.listItem}
               onPress={this.props.screenProps.onCelciusToggle}
-              rightIcon={(
-                <Text style={{marginRight : 8}}>{this.props.screenProps.isCelcius ? 'C°' : 'F°'}</Text>
-              )}
+              rightIcon={
+                this.props.screenProps.isCelcius ? {
+                  type: 'material-community',
+                  name: 'temperature-celsius',
+                  size: 20,
+                  color: 'black'
+                } : {
+                  type: 'material-community',
+                  name: 'temperature-fahrenheit',
+                  size: 20,
+                  color: 'black'
+                }
+            }
             />
           </List>
         </ScrollView>
