@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Picker } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -28,10 +28,21 @@ export default class WeatherScreen extends React.Component {
     this.props.navigation.push(SettingsScreen);
   }
 
+  state = {
+    language: 'Javasdfasdf'
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Text>Weather viewer. isCelcius: { this.props.screenProps.isCelcius.toString() }</Text>
+        <Picker
+          selectedValue={this.state.language}
+          style={{ height: 50, width: 100 }}
+          onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+          <Picker.Item label="Java" value="java" />
+          <Picker.Item label="JavaScript" value="js" />
+        </Picker>
       </SafeAreaView>
     );
   }

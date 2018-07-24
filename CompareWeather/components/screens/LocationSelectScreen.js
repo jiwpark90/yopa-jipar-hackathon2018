@@ -5,7 +5,6 @@ export default class LocationSelectScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'red'}}>
-        <Text>Yolo</Text>
       </View>
     );
   }
