@@ -9,12 +9,19 @@ import WeatherScreen from './components/screens/WeatherScreen';
 
 export default class App extends React.Component {
   state = {
-    isCelcius: false
+    isCelcius: false,
+    currentCity: undefined
   };
 
   handleCelciusToggle = () => {
     this.setState({
       isCelcius: !this.state.isCelcius
+    });
+  }
+
+  handleCitySelect = (city) => {
+    this.setState({
+      currentCity: city
     });
   }
 
@@ -28,7 +35,9 @@ export default class App extends React.Component {
       <RootStack
         screenProps={{
           onCelciusToggle: this.handleCelciusToggle,
-          isCelcius: this.state.isCelcius
+          isCelcius: this.state.isCelcius,
+          onCitySelect: this.handleCitySelect,
+          currentCity: this.state.currentCity
         }} 
       />
     );

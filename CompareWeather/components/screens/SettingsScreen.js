@@ -32,6 +32,11 @@ export default class SettingsScreen extends React.Component {
               title='Location'
               containerStyle={styles.listItem}
               onPress={this.handleLocationSelect}
+              subtitle={
+                this.props.screenProps.currentCity ? 
+                  this.props.screenProps.currentCity.name :
+                  undefined
+              }
             />
             <ListItem
               leftIcon={{

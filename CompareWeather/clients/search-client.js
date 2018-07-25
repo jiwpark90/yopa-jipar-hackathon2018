@@ -18,6 +18,10 @@ class SearchHandler {
             this.citiesLoaded = true;
         }
 
+        if (cityName === '') {
+            return [];
+        }
+
         let cityData = this.cities.filter((city) => {
             if (contains) {
                 if (caseInsensitive) {

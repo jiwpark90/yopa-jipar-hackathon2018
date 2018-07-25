@@ -31,7 +31,9 @@ export default class WeatherScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Weather viewer. isCelcius: { this.props.screenProps.isCelcius.toString() }</Text>
+        <Text>Weather viewer</Text>
+        <Text>isCelcius: { this.props.screenProps.isCelcius.toString() }</Text>
+        <Text>currentCity: { this.props.screenProps.currentCity ? this.props.screenProps.currentCity.name : 'City not selected' }</Text>
       </SafeAreaView>
     );
   }
