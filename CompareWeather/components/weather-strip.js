@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 
-import WeatherPanel from './weahter-panel';
+import WeatherPanel from './weather-panel';
 
 export default class WeatherStrip extends React.Component {
   constructor(props) {
