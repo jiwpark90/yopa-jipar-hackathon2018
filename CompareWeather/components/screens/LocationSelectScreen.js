@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { Header, SafeAreaView } from 'react-navigation';
+import { searchCity } from '../../clients/search-client';
 
 export default class LocationSelectScreen extends React.Component {
   state = {
@@ -12,6 +13,9 @@ export default class LocationSelectScreen extends React.Component {
     this.setState({
       searchText: text
     });
+    // TODO run the search, render the list with the resulting array
+    let result = searchCity(text, true, true);
+    console.log(result);
   }
 
   render() {

@@ -1,0 +1,5 @@
+[{"city_id":5809844,"city_name":"Seattle","state_code":"WA","state_name":"Washington","country_code":"US","country_name":"United States","large_city":true,"small_city":true},
+{"city_id":5128581,"city_name":"New York City","state_code":"NY","state_name":"New York","country_code":"US","country_name":"United States","large_city":true,"small_city":true},
+{"city_id":5368361,"city_name":"Los Angeles","state_code":"CA","state_name":"California","country_code":"US","country_name":"United States","large_city":true,"small_city":true},
+{"city_id":5804306,"city_name":"Mukilteo","state_code":"WA","state_name":"Washington","country_code":"US","country_name":"United States","large_city":true,"small_city":true},
+{"city_id":5345032,"city_name":"East Palo Alto","state_code":"CA","state_name":"California","country_code":"US","country_name":"United States","large_city":true,"small_city":true}]

@@ -2,27 +2,52 @@ import DataLoader from './data-loader';
 import City from '../classes/city';
 import Country from '../classes/country';
 
-export default class SearchClient {
+class SearchHandler {
+    cities = [];
+    countries = [];
+    citiesLoaded = false;
+    countriesLoaded = false;
+
     constructor() {
         this.data = new DataLoader();
     }
 
-    async searchCity(cityName) {
-        var cities = this.data.getCities();
-        var cityData = await cities.filter((city) => {
-            city.name.toLowerCase() === cityName.toLowerCase();
+    searchCity(cityName, contains, caseInsensitive) {
+        if (!this.citiesLoaded) {
+            this.cities = this.data.getCities();
+            this.citiesLoaded = true;
+        }
+
+        let cityData = this.cities.filter((city) => {
+            if (contains) {
+                if (caseInsensitive) {
+                    return city.city_name.search(new RegExp(cityName, 'i')) !== -1;
+                } else {
+                    return city.city_name.search(new RegExp(cityName)) !== -1;
+                }
+            } else {
+                if (caseInsensitive) {
+                    return city.city_name.toLowerCase() === cityName.toLowerCase();
+                } else {
+                    return city.city_name === cityName;
+                }
+            }
         });
-          
-        if(cityData !== null && cityData !== "") {
-            return new City(cityData);
+
+        if (cityData) {
+            return cityData.map((city) => (new City(city)));
         } else {
-            return null;
+            return [];
         }
     }
 
-    async searchCountry(countryName) {
-        var countries = this.data.getCountries();
-        var countryData = await countries.filter((country) => {
+    searchCountry(countryName) {
+        if (!this.countriesLoaded) {
+            this.countries = this.data.getCountries();
+            this.countriesLoaded = true;
+        }
+
+        var countryData = this.countries.filter((country) => {
             country.name.toLowerCase() === countryName.toLowerCase();
         });
         
@@ -32,4 +57,13 @@ export default class SearchClient {
             return null;
         }
     }
+}
+
+const searchClient = new SearchHandler();
+const searchCity = (cityName, contains = true, caseInsensitive = false) => {
+    return searchClient.searchCity(cityName, contains, caseInsensitive);
+}
+
+export {
+    searchCity
 }

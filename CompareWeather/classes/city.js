@@ -1,4 +1,4 @@
-module.exports = class City {
+export default class City {
     constructor(data) {
         this.id = data.city_id;
         this.name = data.city_name;

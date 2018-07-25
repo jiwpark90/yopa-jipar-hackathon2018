@@ -1,4 +1,4 @@
-module.exports = class DailyWeather {
+export default class DailyWeather {
     constructor(data) {
         this.dateTime = this.data.data.dateTime;
         this.maxTemperature = this.data.data.max_temp;

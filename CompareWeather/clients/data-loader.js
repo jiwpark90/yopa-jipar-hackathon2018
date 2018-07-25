@@ -1,5 +1,5 @@
-import * as cities from '../data/cities_all.json';
-import * as countries from '../data/countries.json';
+const cities = require('../data/cities_partial');
+const countries = require('../data/countries');
 
 export default class DataLoader {
     getCities() {

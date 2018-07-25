@@ -1,4 +1,4 @@
-module.exports = class DailyWeather {
+export default class DailyWeather {
     constructor() {
     }
 }

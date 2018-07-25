@@ -19,7 +19,7 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {/* <ScrollView style={styles.scrollView}>
+        <ScrollView style={styles.scrollView}>
           <List containerStyle={styles.settingsList}>
             <ListItem
               leftIcon={{
@@ -65,8 +65,8 @@ export default class SettingsScreen extends React.Component {
             }
             />
           </List>
-        </ScrollView> */}
-        <ScrollView style={styles.container}>
+        </ScrollView>
+        {/* <ScrollView style={styles.container}>
           <ExpandableListItem title="A Panel with short content text">
             <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
           </ExpandableListItem>
@@ -76,7 +76,7 @@ export default class SettingsScreen extends React.Component {
           <ExpandableListItem title="Another Panel">
             <Text>Lorem ipsum dolor sit amet...</Text>
           </ExpandableListItem>
-        </ScrollView>
+        </ScrollView> */}
       </SafeAreaView>
     );
   }
@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'stretch',
-    justifyContent: 'center'
+    justifyContent: 'flex-start',
+    // paddingTop: Header.HEIGHT
   },
   scrollView: {
     flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'stretch'
+    alignItems: 'stretch'
   },
   settingsList: {
     flex: 1,

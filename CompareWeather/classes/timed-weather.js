@@ -1,7 +1,7 @@
 import Weather from './weather';
 import City from './city';
 
-module.exports = class TimedWeather {
+export default class TimedWeather {
     constructor(data) {
         this.dateTime = this.data.data.datetime;
         this.temperature = this.data.data.temp;

@@ -80,7 +80,7 @@ export default class ExpandableListItem extends React.Component {
 
 var styles = StyleSheet.create({
   container   : {
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
       margin:10,
       overflow:'hidden'
   },
