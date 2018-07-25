@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionList, StyleSheet, Text, ScrollView } from 'react-native';
-import { Header, SafeAreaView } from 'react-navigation';
+import { SectionList, StyleSheet, Text, ScrollView, SafeAreaView } from 'react-native';
+import { Header } from 'react-navigation';
 import { List, ListItem } from 'react-native-elements';
 import { TempUnitToggle } from '../TempUnitToggle';
 
