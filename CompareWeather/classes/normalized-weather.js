@@ -1,4 +1,7 @@
 module.exports = class DailyWeather {
-    constructor() {
+    constructor(yesterday, current, forecast) {
+        this.yesterday = yesterday;
+        this.current = current;
+        this.forecast = forecast;
     }
 }

@@ -9,7 +9,12 @@ export default class WeatherClient {
     }
 
     async getCurrentWeatherDataAsync(city, country) {
-        return await Axios.get(baseUrl + "current?city=" + city + "&county=" + country + "&key=" + this.apiKey);
+        return await Axios.get(baseUrl + "current?city=" + city + "&county=" + country + "&key=" + this.apiKey)
+            .then((response) => {
+                return response.data;
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
     // async getCurrentWeatherDataAsync(latitude, longitude) {
@@ -24,7 +29,7 @@ export default class WeatherClient {
     async getHistoricalWeatherHourlyDataAsync(city, country, startDate, endDate) {
         return await Axios.get(baseUrl + "history/hourly?city=" + city + "&country=" + country + "&start_date=" + startDate + "&end_date=" + endDate + "&key=" + this.apiKey)
             .then((response) => {
-                return response;
+                return response.data;
             }).catch((err) => {
                 console.log(err);
             });
@@ -45,7 +50,7 @@ export default class WeatherClient {
     async getHistoricalWeatherDailyDataAsync(city, country, startDate, endDate) {
         return await Axios.get(baseUrl + "history/daily?city=" + city + "&country=" + country + "&start_date=" + startDate + "&end_date=" + endDate + "&key=" + this.apiKey)
             .then((response) => {
-                return response;
+                return response.data;
             }).catch((err) => {
                 console.log(err);
             });
@@ -61,7 +66,12 @@ export default class WeatherClient {
 
     // get 5 day forecast data at 3 hours interval
     async getFiveDayForecastWeatherDataAsync(city, country) {
-        return await Axios.get(baseUrl + "forecast/3hourly?city=" + city + "&country=" + country + "&key=" + this.apiKey);
+        return await Axios.get(baseUrl + "forecast/3hourly?city=" + city + "&country=" + country + "&key=" + this.apiKey)
+            .then((response) => {
+                return response.data;
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
     // async getFiveDayForecastWeatherDataAsync(latitude, longitude) {
@@ -74,7 +84,12 @@ export default class WeatherClient {
 
     // get 16 day forecast data at 1 day interval
     async getSixteenDayForecastWeatherDataAsync(city, country) {
-        return await Axios.get(baseUrl + "forecast/daily?city=" + city + "&country=" + country + "&key=" + this.apiKey);
+        return await Axios.get(baseUrl + "forecast/daily?city=" + city + "&country=" + country + "&key=" + this.apiKey)
+            .then((response) => {
+                return response.data;
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
     // async getSixteenDayForecastWeatherDataAsync(latitude, longitude) {

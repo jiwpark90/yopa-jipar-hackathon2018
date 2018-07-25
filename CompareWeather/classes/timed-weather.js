@@ -3,12 +3,12 @@ import City from './city';
 
 module.exports = class TimedWeather {
     constructor(data) {
-        this.dateTime = this.data.data.datetime;
-        this.temperature = this.data.data.temp;
-        this.humidity = this.data.data.precip;
-        if(this.data.data.weather !== null && this.data.data.weather !== "") {
-            this.weather = new Weather(this.data.data.weather);
+        this.dateTime = data["datetime"];
+        this.temperature = data["temp"];
+        this.humidity = data["precip"];
+        if(data["weather"] !== null && data["weather"] !== "" && data["weather"] !== undefined) {
+            this.weather = new Weather(data["weather"]);
         }
-        this.ts = this.data.data.ts;
+        this.ts = data["ts"];
     }
 }

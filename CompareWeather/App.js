@@ -13,9 +13,12 @@ export default class App extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     var weatherDataLoader = new WeatherDataLoader();
-    weatherDataLoader.getWeatherData();
+    await this.setState({
+      weather: await weatherDataLoader.getWeatherData()
+    });
+    console.log(this.state.weather);
   }
 
   render() {
