@@ -1,14 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+
+// import WeatherPanel from './components/weather-panel';
+
+import WeatherDataLoader from './clients/weather-data-loader';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        
+    };
+  }
+
+  componentDidMount() {
+    var weatherDataLoader = new WeatherDataLoader();
+    weatherDataLoader.getWeatherData();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+        <View>
+        </View>
     );
   }
 }
@@ -20,4 +33,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  weatherLeft: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'powderblue',
+    justifyContent: 'center',
+  },
+  weatherRight: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'steelblue',
+    justifyContent: 'center',
+  }
 });
