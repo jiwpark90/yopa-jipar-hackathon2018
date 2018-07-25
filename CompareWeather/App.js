@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import WeatherDataLoader from './clients/weather-data-loader';
+// import WeatherPanel from './components/weather-panel';
+import { StyleSheet } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import SettingsScreen from './components/screens/SettingsScreen';
 import LocationSelectScreen from './components/screens/LocationSelectScreen';
@@ -16,13 +18,19 @@ export default class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    var weatherDataLoader = new WeatherDataLoader();
+    weatherDataLoader.getWeatherData();
+  }
+
   render() {
     return (
       <RootStack
         screenProps={{
           onCelciusToggle: this.handleCelciusToggle,
           isCelcius: this.state.isCelcius
-        }} />
+        }} 
+      />
     );
   }
 }
@@ -41,3 +49,24 @@ const RootStack = createStackNavigator(
     }
   }
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  weatherLeft: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'powderblue',
+    justifyContent: 'center',
+  },
+  weatherRight: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'steelblue',
+    justifyContent: 'center',
+  }
+});
