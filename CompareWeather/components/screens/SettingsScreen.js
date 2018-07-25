@@ -3,6 +3,7 @@ import { SectionList, StyleSheet, Text, ScrollView, SafeAreaView } from 'react-n
 import { Header } from 'react-navigation';
 import { List, ListItem } from 'react-native-elements';
 import { TempUnitToggle } from '../TempUnitToggle';
+import ExpandableListItem from '../ExpandableListItem';
 
 const LocationSelectScreen = 'LocationSelectScreen';
 
@@ -18,7 +19,7 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+        {/* <ScrollView style={styles.scrollView}>
           <List containerStyle={styles.settingsList}>
             <ListItem
               leftIcon={{
@@ -64,6 +65,17 @@ export default class SettingsScreen extends React.Component {
             }
             />
           </List>
+        </ScrollView> */}
+        <ScrollView style={styles.container}>
+          <ExpandableListItem title="A Panel with short content text">
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+          </ExpandableListItem>
+          <ExpandableListItem title="A Panel with long content text">
+            <Text>Lorem ipsum...</Text>
+          </ExpandableListItem>
+          <ExpandableListItem title="Another Panel">
+            <Text>Lorem ipsum dolor sit amet...</Text>
+          </ExpandableListItem>
         </ScrollView>
       </SafeAreaView>
     );
@@ -91,5 +103,10 @@ const styles = StyleSheet.create({
   listItem: {
     height: 48,
     justifyContent: 'center'
+  },
+  panelListContainer:  {
+    flex            : 1,
+    backgroundColor : '#f4f7f9',
+    paddingTop      : 30
   }
 });
